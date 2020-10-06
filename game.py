@@ -133,7 +133,7 @@ def result():
     _verify_game_initialized()
     _verify_scores_initialized()
     
-    if _to_find == _found:
+    if _to_find == _found_str:
         _scores[_name] += _countdown
         scm.save()
         return True
