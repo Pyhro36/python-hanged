@@ -39,6 +39,7 @@ def main():
         # joueur dans le mot à trouver
         proposal = input("Proposez une lettre :")
         
+        print(proposal)
         # Proposition trouvée : on
         # l'affiche et on peut rejouer
         if game.find(proposal):

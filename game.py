@@ -105,8 +105,8 @@ def find(proposal):
     global _found_str
     global _countdown
     
-    if not (isinstance(proposal, str) and len(proposal) != 1):
-        raise Error("proposal doit être une chaîne d'une seule lettre")
+    if not (isinstance(proposal, str) and len(proposal) == 1):
+        raise ValueError("proposal doit être une chaîne d'une seule lettre")
     
     _verify_game_initialized()
     
@@ -115,9 +115,9 @@ def find(proposal):
     if index != -1:
         while index != -1:
              _found[index] = proposal
-             index = to_find.find(proposal, index + 1)
+             index = _to_find.find(proposal, index + 1)
                 
-        _found_str = "".join(found)
+        _found_str = "".join(_found)
         return True
     
     else:
@@ -148,7 +148,7 @@ def _verify_scores_initialized():
     """
     
     if _scores == None:
-        raise Error("Scores non initialisés ! Appelez d'abord init_score()")
+        raise RuntimeError("Scores non initialisés ! Appelez d'abord init_score()")
     
 def _verify_game_initialized():
     """
@@ -156,4 +156,4 @@ def _verify_game_initialized():
     """
     
     if _to_find == None:
-        raise Error("Jeu on initialisé ! Appelez d'abord init_game()")
+        raise RuntimeError("Jeu on initialisé ! Appelez d'abord init_game()")
