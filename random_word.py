@@ -3,7 +3,7 @@
 import os
 import random
  
-def get_random_word(filename = "words.txt"):
+def get(filename = "words.txt"):
     """
     Renvoie un mot aleatoire parmis ceux
     contenus dans le fichier dont le nom
